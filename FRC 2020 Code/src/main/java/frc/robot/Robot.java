@@ -7,7 +7,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 /**
@@ -16,7 +18,10 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
+@SuppressWarnings("unused")
 public class Robot extends TimedRobot {
+  private Joystick js;
+  private XboxController xbox;
   private Command m_autonomousCommand;
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -26,6 +31,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
+    js = new Joystick(Constants.port_JS);
+    xbox = new XboxController(Constants.port_XBOX);
   }
 
   /**
@@ -42,6 +49,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+    ColorSensor.putColor();
   }
 
   /**
@@ -90,6 +98,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    DriveTrain.START(js);
   }
 
   @Override
