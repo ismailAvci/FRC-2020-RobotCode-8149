@@ -32,6 +32,8 @@ public class DriveTrain {
         victor_L = new SpeedControllerGroup(victor_FL, victor_BL);
 
         RobotDrive = new DifferentialDrive(victor_L, victor_R);
+
+        RobotDrive.setDeadband(Constants.driveTrain_DEADBAND);
     }
 
     public static void START(Object o){
@@ -52,8 +54,23 @@ public class DriveTrain {
         }
     }
 
+    public static void ileri(double hiz){
+        RobotDrive.tankDrive(hiz * 0.5, hiz * 0.5);
+    }
+
+    public static void geri(double hiz){
+        RobotDrive.tankDrive(-hiz * 0.5, -hiz * 0.5);
+    }
+
+    public static void saga_don(double hiz){
+        RobotDrive.tankDrive(hiz * 0.5, -hiz * 0.5);
+    }
+
+    public static void sola_don(double hiz){
+        RobotDrive.tankDrive(-hiz * 0.5, hiz * 0.5);
+    }
+
     public static void STOP(){
-        RobotDrive.arcadeDrive(0, 0);
         RobotDrive.tankDrive(0, 0);
     }
 }

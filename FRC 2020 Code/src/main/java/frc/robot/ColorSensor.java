@@ -56,7 +56,8 @@ public class ColorSensor {
     }
 
     public static void putColor(){
-        switch(ReturnColor()){
+        String c = ReturnColor();
+        switch(c){
             case "MAVI": SmartDashboard.putString("Network Table Tree", "mavi");
                 break;
             

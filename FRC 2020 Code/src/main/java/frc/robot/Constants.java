@@ -20,6 +20,7 @@ public final class Constants {
     public static final int port_FL = 2;
     public static final int port_BR = 0;
     public static final int port_BL = 1;
+    public static final float driveTrain_DEADBAND = 0.2f;
 
     public static final int port_JS = 0;
     public static final int port_XBOX = 1;
@@ -33,8 +34,13 @@ public final class Constants {
     public static final int axis_RX_XBOX = 4;
     public static final int axis_RY_XBOX = 5;
 
-    public static final int port_PNEUMATICS_SOLENOIDS = 0;
-    public static final int port_GYRO = 1;
-    public static final int port_ACCELEROMETER = 2;
-    public static final int port_ULTRASONIC = 3;
+    public static final int num_PCM = 14;
+    public static final int port_SOLENOID_FORWARD = 0;
+    public static final int port_SOLENOID_REVERSE = 0;
+
+    public static final int port_US_PING = 0;
+    public static final int port_US_ECHO = 1;
+    public static final double distance_DROPPER_EDGE = 0;
+
+    public static final byte num_TEAM = 1;
 }
